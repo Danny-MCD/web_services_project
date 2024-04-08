@@ -1,0 +1,130 @@
+<html>
+    <head>
+        
+        <title>
+            test get all
+        </title>
+        nothing appears here.<br/>
+        look at the console
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+    </head>
+    <body>
+    <script>
+        function getAll(callback){
+            $.ajax({
+                "url": "http://DanielMcDonagh.eu.pythonanywhere.com/actors",
+                "method":"GET",
+                "data":"",
+                "dataType": "JSON",
+                "success":function(result){
+                    //console.log(result);
+                    callback(result)
+         
+                },
+                "error":function(xhr,status,error){
+                    console.log("error: "+status+" msg:"+error);
+                }
+            });
+
+        }
+
+        // testing code
+        function createActor(actor, callback){
+            console.log(JSON.stringify(actor));
+            $.ajax({
+                "url": "http://DanielMcDonagh.eu.pythonanywhere.com/actors",
+                "method":"POST",
+                "data":JSON.stringify(actor),
+                "dataType": "JSON",
+                contentType: "application/json; charset=utf-8",
+                "success":function(result){
+                    //console.log(result);
+                    callback(result)  
+                },
+                "error":function(xhr,status,error){
+                    console.log("error: "+status+" msg:"+error);
+                }
+            });
+
+        }
+        function updateBook(book, callback){
+            //console.log(JSON.stringify(book));
+            $.ajax({
+                "url": "http://DanielMcDonagh.eu.pythonanywhere.com/actors/"+encodeURI(book.id),
+                "method":"PUT",
+                "data":JSON.stringify(book),
+                "dataType": "JSON",
+                contentType: "application/json; charset=utf-8",
+                "success":function(result){
+                    console.log(result);
+                    callback(result)   
+                },
+                "error":function(xhr,status,error){
+                    console.log("error: "+status+" msg:"+error);
+                }
+            });
+        }
+        function deleteActor(id, callback){
+            $.ajax({
+                "url": "http://DanielMcDonagh.eu.pythonanywhere.com/actors/"+id,
+                "method":"DELETE",
+                "data":"",
+                "dataType": "JSON",
+                contentType: "application/json; charset=utf-8",
+                "success":function(result){
+                    console.log(result);
+                    callback(result)  
+                },
+                "error":function(xhr,status,error){
+                    console.log("error: "+status+" msg:"+error);
+                }
+            });
+
+        }
+
+
+
+        // testing code
+        
+        function processGetAllResponse(result){
+            console.log("in process")
+            //console.log(result)
+            for (book of result){
+                console.log(actor)
+                // issue the format of the actor object is different from lab06.02
+                // there are two solutions change the actor object in lan06.02 to have capitals 
+                // or convert
+                displayActor = {}
+                displayActor.id = actor.id
+                displayActor.name = actor.Name
+                displayActor.filmography = actor.Filmography
+                displayActor.age = actor.Age
+                // you can now pass it to addActorToTable
+            }
+        }
+         getAll(processGetAllResponse)
+
+         ///// Create
+        function processCreateResponse(result){
+            console.log(result)
+        }
+        //book = {"Title":"javascript","Author":"andrew","Price":12} 
+        //createBook(book,processCreateResponse) 
+
+        //// update
+        function processUpdateResponse(result){
+            console.log(result)
+        }
+        actor = {id:55,"Price":99} 
+        //updateBook(book,processUpdateResponse)
+        
+        ////delete
+        
+        function processDeleteResponse(result){
+            console.log("in pprocess delete")
+            console.log(result)
+        }
+        //deleteBook(155,processUpdateResponse) 
+    </script>
+</html>
