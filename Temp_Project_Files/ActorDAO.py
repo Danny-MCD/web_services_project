@@ -1,24 +1,19 @@
-# actor dao 
-# this is a demonstration a data layer that connects to a datbase
-# Author: Daniel Mc Donagh
-
 import mysql.connector
-import dbconfig as cfg
-class actorDAO:
-    connection =""
-    cursor =""
+class ActorDAO:
     host =""
-    user =""
+    user = ""
     password =""
     database =""
 
-    
+    connection = ""
+    cursor =""
 
     def __init__(self): 
-        self.host=       cfg.mysql['host']
-        self.user=       cfg.mysql['user']
-        self.password=   cfg.mysql['password']
-        self.database=   cfg.mysql['database']
+        #these should be read from a config file
+        self.host="localhost"
+        self.user="root"
+        self.password=""
+        self.database="actor"
     
     def getCursor(self): 
         self.connection = mysql.connector.connect(
@@ -39,13 +34,13 @@ class actorDAO:
         cursor = self.getCursor()
         sql="select * from actor"
         cursor.execute(sql)
-        results = cursor.fetchall()
-        returnArray = []
-        for result in results:
-            returnArray.append(self.convertToDictionary(result))
+        result = cursor.fetchall()
+        actorlist = []
+        for row in result:
+            actorlist.append(self.convertToDict(row))
 
         self.closeAll()
-        return returnArray
+        return actorlist
 
     def findByID(self, id):
         cursor = self.getCursor()
@@ -54,14 +49,13 @@ class actorDAO:
 
         cursor.execute(sql, values)
         result = cursor.fetchone()
-        returnvalue = self.convertToDictionary(result)
         self.closeAll()
-        return returnvalue
+        return self.convertToDict(result)
     
     def create(self, actor):
         cursor = self.getCursor()
-        sql="insert into actor (filmography, name, age) values (%s,%s,%s)"
-        values = (actor.get("filmography"), actor.get("name"), actor.get("age"))
+        sql="insert into actor (filmography,name, age) values (%s,%s,%s)"
+        values = (actor.get("name"), student.get("age"))
         cursor.execute(sql, values )
 
         self.connection.commit()
@@ -74,31 +68,33 @@ class actorDAO:
     def update(self, id,  actor):
         cursor = self.getCursor()
         sql="update actor set filmography=%s, name= %s, age=%s  where id = %s"
-        print(f"update actor {actor}")
+    
         values = (actor.get("filmography"), actor.get("name"), actor.get("age"), id)
         cursor.execute(sql, values)
         self.connection.commit()
-        self.closeAll()
         
+        self.closeAll()
+        return actor
 
     def delete(self, id):
         cursor = self.getCursor()
         sql="delete from actor where id = %s"
         values = (id,)
+
         cursor.execute(sql, values)
 
         self.connection.commit()
         self.closeAll
-        print("delete done")
-        
+        #print("delete done")
+        return True
 
-    def convertToDictionary(self, result):
+    def convertToDict(self,resultLine):
         actorKeys = ["id", "filmography", "name", "age"]
-        actor = {}
         currentkey = 0
-        for attrib in result:
+        actor = {}
+        for attrib in resultLine:
             actor[actorKeys[currentkey]] = attrib
             currentkey = currentkey + 1 
         return actor
 
-ActorDAO = actorDAO()
+ActorDAO = ActorDAO()
