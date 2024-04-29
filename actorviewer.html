@@ -36,7 +36,7 @@
     <script>
     function showCreate(){
         document.getElementById('showCreateButton').style.display="none"
-        document.getElementById('actorTable').style.display="none"
+        document.getElementById('ActorTable').style.display="none"
         document.getElementById('createUpdateForm').style.display="block"
 
         document.getElementById('createLabel').style.display="inline"
@@ -48,12 +48,12 @@
     }
     function showViewAll(){
         document.getElementById('showCreateButton').style.display="block"
-        document.getElementById('actorTable').style.display="block"
+        document.getElementById('ActorTable').style.display="block"
         document.getElementById('createUpdateForm').style.display="none"
     }
     function showUpdate(buttonElement){
         document.getElementById('showCreateButton').style.display="none"
-        document.getElementById('actorTable').style.display="none"
+        document.getElementById('ActorTable').style.display="none"
         document.getElementById('createUpdateForm').style.display="block"
 
         document.getElementById('createLabel').style.display="none"
@@ -79,6 +79,8 @@
         actor.age = form.querySelector('input[name="age"]').value
         console.log(JSON.stringify(actor))
         createActorAjax(actor)
+
+        clearForm();
         
         
     }
@@ -92,7 +94,7 @@
         showViewAll();
     }
     function doDelete(r){
-        var tableElement = document.getElementById('actorTable');
+        var tableElement = document.getElementById('ActorTable');
         var rowElement = r.parentNode.parentNode;
         var index = rowElement.rowIndex;
         deleteActorAjax(rowElement.getAttribute("id"));
@@ -125,7 +127,7 @@
         form.querySelector('input[name="age"]').value=''
     }
     function getActorFromRow(rowElement){
-        var car ={}
+        var actor ={}
         actor.id  = rowElement.getAttribute('id')
         actor.filmography = rowElement.cells[1].firstChild.textContent
         actor.name = rowElement.cells[2].firstChild.textContent
