@@ -24,5 +24,5 @@ The Actor Management System offers the following functionality:
 ## **Usage**
 To run the actor management system open the following URL address in any browser or click on the link below.
 
-[### **_Actor Management System_**]: https://DanielMcDonagh.eu.pythonanywhere.com
+[### **_Actor Management System_**]: (https://DanielMcDonagh.eu.pythonanywhere.com/actors)
 
