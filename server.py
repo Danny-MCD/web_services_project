@@ -1,3 +1,8 @@
+# Flask Server for Actor Management System
+# Author: Daniel Mc Donagh
+
+
+
 from flask import Flask, jsonify, request, abort
 from ActorDAO import ActorDAO
 
@@ -22,7 +27,7 @@ def create():
     
     if not request.json:                                                # Checks if the request contains JSON data
         abort(400)                                                      # If not it aborts with a 400 Bad request error
-    # other checking 
+    
     actor = {                                                           # Extracts filmography, name and age from the JSON request data
         "filmography": request.json['filmography'],
         "name": request.json['name'],
