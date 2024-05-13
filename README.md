@@ -22,16 +22,16 @@ The Actor Management System offers the following functionality:
 - **Delete Actor:** Users can delete an existing actor from the database by providing the actor's ID. This dunctionality is implemented using the **'delete'** endpoint.
 
 ## **Usage**
-The python programs are being hosted on the website [**PythonAnywhere**]: (https://eu.pythonanywhere.com/)
-To run the Actor Management System open the following URL address in any browser or click on the links provided.
+The python programs are being hosted on the website [_**PythonAnywhere**_](https://eu.pythonanywhere.com/)
+To run the Actor Management System open the following URL addresses in any browser or click on the links provided.
 
 #### **Actor Management System**
 URL = https://DanielMcDonagh.eu.pythonanywhere.com/actorviewer.html
-Link = [### **_Actor Management System_**]: (https://DanielMcDonagh.eu.pythonanywhere.com/actorviewer.html)
+Link = [### **_Actor Management System_**](https://DanielMcDonagh.eu.pythonanywhere.com/actorviewer.html)
 
 #### **Sample Database**
 URL = https://DanielMcDonagh.eu.pythonanywhere.com/actors
-Link = [### **_Database_**]: (https://DanielMcDonagh.eu.pythonanywhere.com/actors)
+Link = [**_Database_**](https://DanielMcDonagh.eu.pythonanywhere.com/actors)
 
 ## **Execution of Code**
 All code for these assignments was written on Visual Studio Code ver.1.88 and executed using Python 3.10 interpreter. 
