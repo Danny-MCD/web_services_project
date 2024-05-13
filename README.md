@@ -26,11 +26,11 @@ The python programs are being hosted on the website [_**PythonAnywhere**_](https
 To run the Actor Management System open the following URL addresses in any browser or click on the links provided.
 
 #### **Actor Management System**
-URL = https://DanielMcDonagh.eu.pythonanywhere.com/actorviewer.html
-Link = [### **_Actor Management System_**](https://DanielMcDonagh.eu.pythonanywhere.com/actorviewer.html)
+URL = https://DanielMcDonagh.eu.pythonanywhere.com/actorviewer.html  
+Link = [**_Actor Management System_**](https://DanielMcDonagh.eu.pythonanywhere.com/actorviewer.html)
 
 #### **Sample Database**
-URL = https://DanielMcDonagh.eu.pythonanywhere.com/actors
+URL = https://DanielMcDonagh.eu.pythonanywhere.com/actors  
 Link = [**_Database_**](https://DanielMcDonagh.eu.pythonanywhere.com/actors)
 
 ## **Execution of Code**
@@ -51,5 +51,5 @@ https://code.visualstudio.com/Download
 
 
 ## **References**
-All python, HTML, CSS and JavaScript code has been referenced extensivly from Andrew Beatty's lectures in the module **Web Services and Applications**.
+All python, HTML, CSS and JavaScript code has been referenced extensivly from Andrew Beatty's lectures in the module **Web Services and Applications** as part of the Higher Diploma in Data Analytics given online by Atlantic Technological University in the year 2024.
 
